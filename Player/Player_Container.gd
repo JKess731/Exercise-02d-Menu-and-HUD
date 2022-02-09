@@ -5,5 +5,9 @@ onready var Player = load("res://Player/Player.tscn")
 func _physics_process(_delta):
 	if get_child_count() == 0:
 		var player = Player.instance()
-		player.position = Vector2(512,300)
+		player.position = Vector2(Global.VP.x/2,Global.VP.y/2)
 		add_child(player)
+
+
+func _on_Timer_timeout():
+	Global.update_time(-1)
