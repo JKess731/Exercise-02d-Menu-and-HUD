@@ -39,12 +39,15 @@ func get_input():
 	var to_return = Vector2.ZERO
 	$Exhaust.hide()
 	if Input.is_action_pressed("forward"):
-		to_return.y -= 1
+		to_return.y -= 1 + rotation_speed/3
 		$Exhaust.show()
+		$Exhaust.play()
 	if Input.is_action_pressed("left"):
 		rotation_degrees = rotation_degrees - rotation_speed
 	if Input.is_action_pressed("right"):
 		rotation_degrees = rotation_degrees + rotation_speed
+	if Input.is_action_pressed("back"):
+		to_return.y += 1 + rotation_speed/2
 	return to_return.rotated(rotation)
 	
 func damage(d):

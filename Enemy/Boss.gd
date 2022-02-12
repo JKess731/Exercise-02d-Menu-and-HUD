@@ -48,6 +48,7 @@ func _on_Area2D_body_exited(body):
 		damage(100)
 
 
+
 func _on_Timer_timeout():
 	var Player = get_node_or_null("/root/Game/Player_Container/Player")
 	Effects = get_node_or_null("/root/Game/Effects")
@@ -57,4 +58,3 @@ func _on_Timer_timeout():
 		bullet.rotation = d
 		bullet.global_position = global_position + Vector2(0,-40).rotated(d)
 		Effects.add_child(bullet)
-	
