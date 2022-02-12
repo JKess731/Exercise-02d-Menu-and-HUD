@@ -5,15 +5,12 @@ var initial_position = Vector2.ZERO
 var direction = Vector2(1.5,0)
 var wobble = 30.0
 
-var rotation_speed = 10.0
 
 var health = 1
 
 var Effects = null
 onready var Bullet = load("res://Enemy/Bullet.tscn")
 onready var Explosion = load("res://Effects/Explosion.tscn")
-var player = null
-
 
 func _ready():
 	initial_position.x = -100
@@ -21,10 +18,6 @@ func _ready():
 	position = initial_position
 
 func _physics_process(_delta):
-	player = get_node_or_null("/root/Game/Player_Container/Player")
-	if player != null:
-		look_at(player.global_position)
-		rotation += PI/2
 	position += direction
 	position.y = initial_position.y + sin(position.x/20)*wobble
 	if position.x >= Global.VP.x + 100:
